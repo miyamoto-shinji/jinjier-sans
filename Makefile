@@ -4,7 +4,8 @@ JOBS ?= 4
 .PHONY: setup fetch masters font web release all test qa qa-external clean clean-all
 
 setup:
-	$(PYTHON) -m pip install -e '.[dev]'
+	$(PYTHON) -m pip install --require-hashes -r requirements-dev.lock
+	$(PYTHON) -m pip install --no-deps --no-build-isolation -e .
 
 fetch:
 	$(PYTHON) -m jinjer_sans.build fetch

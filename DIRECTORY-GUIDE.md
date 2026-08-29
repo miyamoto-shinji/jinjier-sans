@@ -14,7 +14,7 @@
 jinjer-sans/
 ├── .cache/                  取得した元フォントの一時保管場所
 ├── .fontbakery-venv/        FontBakery専用の検査環境
-├── .github/workflows/       GitHub上で自動ビルド・検査する設定
+├── .github/                 GitHub上の検査・更新・報告ルール
 ├── docs/                    人が読む仕様書・導入ガイド
 ├── specimen/                フォント比較見本の編集元
 ├── src/jinjer_sans/         フォントを作るPythonプログラム
@@ -35,6 +35,7 @@ jinjer-sans/
 
 - `INSTALL.md` — Web、PC、Office、Figmaへの導入方法
 - `QA.md` — 検査方法、対応環境、既知の警告
+- `SECURITY.md` — 配布ファイルの検証、CDNのHTTPヘッダー、リポジトリ保護
 - `BRAND-GLYPHS.md` — jinjer独自字形26字の方針
 
 ### `specimen/` — 比較見本の編集元
@@ -44,6 +45,7 @@ jinjer-sans/
 - `index.html` — ページに載せる文章、見出し、タイプテスター、CDNガイドの内容
 - `specimen.css` — 色、余白、文字サイズ、カード、PC／スマートフォン表示などのデザイン
 - `specimen.js` — ウェイト・文字サイズのスライダー、サンプル切替、コードのコピーボタン
+- `_headers` — CDN公開時に見本ページへ付けるセキュリティHTTPヘッダー
 - 3ファイルは次回のリリース作成時に、まとめて`dist/specimen/`へコピーされます。
 - ブランド責任者やプロダクト担当者との字形確認に使います。
 - 実際のプロダクト画面ではありません。
@@ -87,6 +89,8 @@ jinjer-sans/
 - `test_config.py` — 26字とウェイト対応の確認
 - `test_metadata.py` — フォント名とPostScript名の確認
 - `test_outputs.py` — 実際に生成したフォントの確認
+- `test_upstream_security.py` — 元データの改ざんや危険な圧縮ファイルを拒否できるか確認
+- `test_security_config.py` — CIやCDNの保護設定が誤って弱くならないか確認
 
 `make test`で実行します。テストファイル自体は配布物に含めません。
 
@@ -158,9 +162,15 @@ FontBakeryと通常ビルドのFreeType依存関係が競合しないように�
 
 ## GitHubとプロジェクト設定
 
-### `.github/workflows/`
+### `.github/`
 
-GitHubへ変更を送ったときに、自動でビルドと検査を行うCI設定です。フォントのデザイン内容ではなく、検査手順を管理します。
+GitHub上で安全に変更を受け入れるための設定です。フォントのデザイン内容ではなく、検査・依存関係更新・脆弱性報告の手順を管理します。
+
+- `workflows/ci.yml` — Pull Requestとpushのたびにテスト、ビルド、脆弱性検査を行う
+- `dependabot.yml` — PythonライブラリとGitHub Actionsの更新を週1回確認する
+- `SECURITY.md` — 脆弱性を公開Issueではなく非公開で報告してもらう案内
+
+GitHub Actionsは、名前だけのバージョンではなく完全なコミットSHAへ固定しています。更新はDependabotのPull RequestをCIで確認してから取り込みます。
 
 ### ルート直下の主なファイル
 
@@ -169,7 +179,10 @@ GitHubへ変更を送ったときに、自動でビルドと検査を行うCI設
 | `README.md` | プロジェクトの概要とビルド方法 |
 | `Makefile` | `make all`などの短い操作コマンド |
 | `pyproject.toml` | 必要なPythonとライブラリの定義 |
-| `sources.lock.json` | 元フォントのバージョン、取得先、SHA256を固定する |
+| `requirements-dev.lock` | ビルド・テスト用Pythonライブラリを間接依存とSHA256まで固定する |
+| `requirements-fontbakery.lock` | 分離したFontBakery検査環境のライブラリを固定する |
+| `requirements-fontbakery.in` | FontBakeryロックファイルを更新するときの入力元 |
+| `sources.lock.json` | 元フォントのバージョン、取得先、アーカイブ・実行コード・フォントのSHA256を固定する |
 | `performance-baseline.json` | 現行Inter＋Noto構成の転送量基準 |
 | `fontbakery.toml` | FontBakeryで理由付き除外にする検査項目 |
 | `OFL.txt` | 生成フォントのSIL Open Font License 1.1 |
@@ -187,6 +200,7 @@ GitHubへ変更を送ったときに、自動でビルドと検査を行うCI設
 | フォントの見た目を確認したい | `dist/specimen/index.html` |
 | 独自字形の考え方を確認したい | `docs/BRAND-GLYPHS.md` |
 | 検査結果や既知の警告を確認したい | `docs/QA.md` |
+| CDN・リポジトリの安全な設定を確認したい | `docs/SECURITY.md` |
 | フォントを最初から作り直したい | `README.md`のビルド手順 |
 
 ## 削除してよいもの／いけないもの
@@ -205,6 +219,7 @@ GitHubへ変更を送ったときに、自動でビルドと検査を行うCI設
 - `docs/` — 導入・QA資料
 - `specimen/` — 比較見本の原本
 - `sources.lock.json` — 元データの固定情報
+- `requirements-dev.lock`、`requirements-fontbakery.lock` — 検証済み依存関係の固定情報
 - `OFL.txt`、`CREDITS.md` — ライセンスと権利表示
 
 判断に迷った場合は、`dist/`の中を直接直すのではなく、元になる`src/`、`docs/`、`specimen/`のどれを変更すべきか確認してください。
