@@ -17,10 +17,13 @@ Python 3.11以降が必要です。上流フォントとGen Interface JPは `sou
 
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -e '.[dev]'
+.venv/bin/pip install --require-hashes -r requirements-dev.lock
+.venv/bin/pip install --no-deps --no-build-isolation -e .
 .venv/bin/python -m jinjer_sans.build all --jobs 4
 .venv/bin/python -m jinjer_sans.qa
 ```
+
+`requirements-dev.lock` は間接依存を含むバージョンとSHA256を固定しています。依存関係を更新するときは、DependabotのPull Requestまたはレビュー済みのロックファイル更新を使い、通常のセットアップでは固定を外さないでください。
 
 初回は約40MBの上流アーカイブを取得し、約19,500グリフ×4マスターを処理するため時間がかかります。`dist/masters/` は再利用され、変更時は `--force` で再生成できます。
 
@@ -35,7 +38,7 @@ python3 -m venv .venv
 5. 4つの互換マスターからfontTools varLibで `wght` 可変フォントを生成
 6. 可変版から静的4ウェイトとWeb分割版を生成
 
-詳細は [導入ガイド](docs/INSTALL.md)、[QA](docs/QA.md)、[ブランド字形](docs/BRAND-GLYPHS.md) を参照してください。
+詳細は [導入ガイド](docs/INSTALL.md)、[QA](docs/QA.md)、[セキュリティとCDN配信](docs/SECURITY.md)、[ブランド字形](docs/BRAND-GLYPHS.md) を参照してください。
 
 ## ライセンス
 

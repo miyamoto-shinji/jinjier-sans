@@ -285,6 +285,7 @@ def build_release() -> Path:
     shutil.copytree(WEB_DIR, package_root / "web")
     shutil.copytree(SPECIMEN_DIR, package_root / "specimen")
     shutil.copy2(PROJECT_ROOT / "docs" / "INSTALL.md", package_root / "INSTALL.md")
+    shutil.copy2(PROJECT_ROOT / "docs" / "SECURITY.md", package_root / "SECURITY.md")
     files = [path for path in package_root.rglob("*") if path.is_file()]
     checksums = "".join(f"{sha256(path)}  {path.relative_to(package_root)}\n" for path in sorted(files))
     (package_root / "SHA256SUMS").write_text(checksums, encoding="utf-8")
