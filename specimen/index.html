@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="InterとNoto Sans JPをつないだ、jinjerのためのUIフォント『jinjer sans』の書体見本です。">
+  <meta name="theme-color" content="#ffe600">
+  <title>jinjer sans — Brand typeface specimen</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='5' y='5' width='54' height='54' fill='%23ffe600' stroke='%23101010' stroke-width='5'/%3E%3C/svg%3E">
+  <!-- 開発元のspecimen/から開く場合はdist/web/の生成済みフォントを参照します。 -->
+  <link rel="stylesheet" href="../web/jinjer-sans-variable.css">
+  <link rel="stylesheet" href="./specimen.css">
+</head>
+<body id="top">
+  <main>
+    <header class="hero">
+      <div class="hero-display">
+        <h1 class="hero-title" aria-label="jinjer sans">
+          <span>jinjer</span>
+          <span>sans</span>
+        </h1>
+        <div class="hero-glyph-panel" aria-hidden="true">
+          <span class="hero-glyph hero-glyph-latin"><small>Latin / Inter</small>a</span>
+          <span class="hero-glyph hero-glyph-jp"><small>Japanese / Noto</small>人</span>
+          <span class="hero-glyph hero-glyph-num"><small>Figures / UI</small>01</span>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-statement">「ひと」の可能性を、<br>まっすぐ、やわらかく伝える。</p>
+        <dl class="hero-specs">
+          <div><dt>Axis</dt><dd>100–900</dd></div>
+          <div><dt>Style</dt><dd>Normal</dd></div>
+          <div><dt>For</dt><dd>UI / Brand</dd></div>
+        </dl>
+        <a class="download-button" href="../desktop/jinjerSans-VF.ttf" download="jinjerSans-VF.ttf">Download font ↓</a>
+      </div>
+    </header>
+
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <div class="manifesto-head">
+        <p class="eyebrow">01 / Why jinjer sans</p>
+        <h2 class="manifesto-copy" id="manifesto-title">働く毎日に、<br><mark>同じ声</mark>を。</h2>
+      </div>
+      <div class="manifesto-foot">
+        <p>プロダクトの小さな数字から、ブランドの大きな言葉まで。英語と日本語が自然につながり、jinjerらしい温度を一貫して届けるための横書きUIフォントです。</p>
+        <dl class="composition-list">
+          <div><dt>Latin / Numbers</dt><dd>Inter + jinjer signature glyphs</dd></div>
+          <div><dt>Japanese / Full-width</dt><dd>Noto Sans JP</dd></div>
+          <div><dt>Variable axis</dt><dd>wght 100–900</dd></div>
+          <div><dt>Optical size</dt><dd>opsz 14 fixed for UI</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section type-lab" id="type-lab" aria-label="Type lab">
+      <p class="eyebrow section-label">02 / Type lab</p>
+      <div class="tester-layout">
+        <aside class="tester-controls" aria-label="タイプテスターの設定">
+          <div class="control-group">
+            <label class="control-label" for="weight">
+              <span>Weight</span>
+              <output id="value" for="weight">700</output>
+            </label>
+            <input id="weight" type="range" min="100" max="900" value="700" step="1">
+            <div class="button-row weight-presets" aria-label="ウェイトのプリセット">
+              <button class="choice-button" type="button" data-weight="100" aria-pressed="false">100</button>
+              <button class="choice-button" type="button" data-weight="400" aria-pressed="false">400</button>
+              <button class="choice-button" type="button" data-weight="700" aria-pressed="false">700</button>
+              <button class="choice-button" type="button" data-weight="900" aria-pressed="false">900</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="font-size">
+              <span>Size</span>
+              <output id="size-value" for="font-size">88px</output>
+            </label>
+            <input id="font-size" type="range" min="24" max="180" value="88" step="1">
+          </div>
+          <div class="control-group">
+            <div class="control-label"><span>Sample</span></div>
+            <div class="button-row" aria-label="サンプルテキスト">
+              <button class="preset-button" type="button" data-preset="jp" aria-pressed="true">日本語</button>
+              <button class="preset-button" type="button" data-preset="en" aria-pressed="false">English</button>
+              <button class="preset-button" type="button" data-preset="num" aria-pressed="false">Numbers</button>
+              <button class="preset-button" type="button" data-preset="ui" aria-pressed="false">UI</button>
+            </div>
+          </div>
+        </aside>
+        <div class="tester-stage">
+          <div
+            class="tester-text"
+            id="tester-text"
+            contenteditable="true"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="書体を試すための編集可能なテキスト"
+            spellcheck="false"
+            tabindex="0"
+          >「ひと」の可能性のすべてが見える世界へ</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section weight-section" id="weights" aria-label="Weights">
+      <p class="eyebrow section-label">03 / Weights</p>
+      <div class="weight-list">
+        <div class="weight-row w100">
+          <div class="weight-meta"><strong>100</strong><span>Thin</span></div>
+          <div class="weight-sample">人と、未来へ。Aa 01</div>
+        </div>
+        <div class="weight-row w400">
+          <div class="weight-meta"><strong>400</strong><span>Regular</span></div>
+          <div class="weight-sample">人と、未来へ。Aa 01</div>
+        </div>
+        <div class="weight-row w700">
+          <div class="weight-meta"><strong>700</strong><span>Bold</span></div>
+          <div class="weight-sample">人と、未来へ。Aa 01</div>
+        </div>
+        <div class="weight-row w900">
+          <div class="weight-meta"><strong>900</strong><span>Black</span></div>
+          <div class="weight-sample">人と、未来へ。Aa 01</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dna" aria-label="Signature glyphs">
+      <p class="eyebrow section-label">04 / Signature glyphs</p>
+      <div class="dna-intro">
+        <p>端部のやわらかさ、開いたカウンター、読みやすい数字。UIで機能しながら、ふとした瞬間にjinjerらしさが見える字形です。</p>
+        <dl class="script-map">
+          <div><dt>a–z / A–Z</dt><dd>Interを基礎に、一部を独自字形へ調整</dd></div>
+          <div><dt>0–9 / 半角記号</dt><dd>Inter + jinjer独自字形</dd></div>
+          <div><dt>かな / 漢字 / 全角</dt><dd>Noto Sans JPを調整して収録</dd></div>
+        </dl>
+      </div>
+      <div class="glyph-grid" aria-label="jinjer sansの独自字形26字">
+        <span class="glyph"><small>01</small>a</span>
+        <span class="glyph"><small>02</small>e</span>
+        <span class="glyph"><small>03</small>g</span>
+        <span class="glyph"><small>04</small>i</span>
+        <span class="glyph"><small>05</small>j</span>
+        <span class="glyph"><small>06</small>n</span>
+        <span class="glyph"><small>07</small>r</span>
+        <span class="glyph"><small>08</small>0</span>
+        <span class="glyph"><small>09</small>1</span>
+        <span class="glyph"><small>10</small>2</span>
+        <span class="glyph"><small>11</small>3</span>
+        <span class="glyph"><small>12</small>4</span>
+        <span class="glyph"><small>13</small>5</span>
+        <span class="glyph"><small>14</small>6</span>
+        <span class="glyph"><small>15</small>7</span>
+        <span class="glyph"><small>16</small>8</span>
+        <span class="glyph"><small>17</small>9</span>
+        <span class="glyph"><small>18</small>@</span>
+        <span class="glyph"><small>19</small>&amp;</span>
+        <span class="glyph"><small>20</small>%</span>
+        <span class="glyph"><small>21</small>+</span>
+        <span class="glyph"><small>22</small>-</span>
+        <span class="glyph"><small>23</small>/</span>
+        <span class="glyph"><small>24</small>:</span>
+        <span class="glyph"><small>25</small>.</span>
+        <span class="glyph"><small>26</small>,</span>
+      </div>
+      <div class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 @ &amp; % + - / : . ,</div>
+    </section>
+
+    <section class="web-guide" id="web-guide" aria-label="Web integration">
+      <p class="eyebrow section-label">05 / Web integration</p>
+
+      <div class="guide-grid">
+        <details class="guide-card" open>
+          <summary><span class="step-number">01</span><span>CDNへファイルを配置</span></summary>
+          <div class="guide-card-content">
+            <p><code>dist/web/</code>の中身を丸ごとアップロードします。CSSからWOFF2を相対パスで参照するため、フォルダ構成は変更しません。</p>
+            <div class="code-shell">
+              <button class="copy-button" type="button" data-copy-target="tree-code">Copy</button>
+              <pre id="tree-code"><code>https://cdn.example.com/fonts/jinjer-sans/1.0.0/
+├── jinjer-sans.css              # 本番用：400 / 700
+├── jinjer-sans-variable.css     # 検証用：100–900
+├── jinjer-sans-full.css         # 分割なし・診断用
+├── jinjerSans-VF.woff2
+├── tokens.css
+├── manifest.json
+├── w/
+│   ├── 400/                     # Regularの分割WOFF2
+│   ├── 700/                     # Boldの分割WOFF2
+│   └── vf/                      # 可変版の分割WOFF2
+└── nam/                         # 各分割ファイルのUnicode一覧</code></pre>
+            </div>
+          </div>
+        </details>
+
+        <details class="guide-card" open>
+          <summary><span class="step-number">02</span><span>本番用CSSを読み込む</span></summary>
+          <div class="guide-card-content">
+            <p>通常のWebサイトとプロダクトでは、転送量を抑えた400／700の<code>jinjer-sans.css</code>を使います。</p>
+            <div class="code-shell">
+              <button class="copy-button" type="button" data-copy-target="link-code">Copy</button>
+              <pre id="link-code"><code>&lt;link
+  rel="stylesheet"
+  href="https://cdn.example.com/fonts/jinjer-sans/1.0.0/jinjer-sans.css"
+&gt;</code></pre>
+            </div>
+            <p><code>font-display: swap</code>とUnicode-rangeは設定済みです。画面で使われた文字に必要なWOFF2だけを取得します。</p>
+          </div>
+        </details>
+
+        <details class="guide-card">
+          <summary><span class="step-number">03</span><span>アプリでフォントを指定</span></summary>
+          <div class="guide-card-content">
+            <p>デザイントークンを定義し、本文だけでなくボタンや入力欄にも同じフォントを指定します。本番CSSのウェイトは400と700です。</p>
+            <div class="code-shell">
+              <button class="copy-button" type="button" data-copy-target="css-code">Copy</button>
+              <pre id="css-code"><code>:root {
+  --font-family-sans:
+    "jinjer sans", Inter, "Noto Sans JP", sans-serif;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-family-sans);
+}
+
+body { font-weight: 400; }
+strong,
+.heading { font-weight: 700; }</code></pre>
+            </div>
+          </div>
+        </details>
+
+        <details class="guide-card">
+          <summary><span class="step-number">04</span><span>可変版を検証で試す</span></summary>
+          <div class="guide-card-content">
+            <p>Storybook、比較見本、機能フラグ付き検証では可変版を使います。本番用CSSと可変版CSSは同じページで同時に読み込みません。</p>
+            <div class="code-shell">
+              <button class="copy-button" type="button" data-copy-target="variable-code">Copy</button>
+              <pre id="variable-code"><code>&lt;link
+  rel="stylesheet"
+  href="https://cdn.example.com/fonts/jinjer-sans/1.0.0/jinjer-sans-variable.css"
+&gt;
+
+&lt;style&gt;
+  .variable-heading {
+    font-family: "jinjer sans", sans-serif;
+    font-weight: 550;
+  }
+&lt;/style&gt;</code></pre>
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">jinjer sans</div>
+    <div class="footer-meta">
+      <span>Version 1.0.0</span>
+      <span>© 2026 jinjer sans project</span>
+    </div>
+  </footer>
+
+  <div class="sr-only" id="copy-status" aria-live="polite"></div>
+  <script src="./specimen.js"></script>
+</body>
+</html>

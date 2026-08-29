@@ -1,0 +1,8 @@
+/* Full-font fallback for diagnostics only. */
+@font-face {
+  font-family: "jinjer sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./jinjerSans-VF.woff2") format("woff2-variations");
+}
