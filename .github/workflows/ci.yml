@@ -1,0 +1,35 @@
+name: build-font
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: jinjer-sans-upstream-${{ hashFiles('sources.lock.json') }}
+      - run: sudo apt-get update && sudo apt-get install -y libharfbuzz-bin opentype-sanitizer
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest
+      - run: python -m jinjer_sans.build all --jobs 4
+      - run: python -m jinjer_sans.qa --external
+      # FontBakery currently requires freetype-py<2.4 while the pinned Gen
+      # Interface JP builder requires >=2.4, so keep the validator isolated.
+      - run: |
+          python -m venv .fontbakery-venv
+          .fontbakery-venv/bin/pip install fontbakery==1.1.0
+          .fontbakery-venv/bin/fontbakery check-universal --configuration fontbakery.toml --succinct dist/desktop/jinjerSans-VF.ttf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jinjer-sans-${{ github.sha }}
+          path: dist/release/

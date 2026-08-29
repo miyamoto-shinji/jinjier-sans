@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "genInterfaceJP": {
+    "version": "0.8.0",
+    "commit": "876247fdf42b52ce919e4c9e638a93bca31733a9",
+    "archiveUrl": "https://github.com/yamatoiizuka/gen-interface-jp/archive/876247fdf42b52ce919e4c9e638a93bca31733a9.tar.gz",
+    "archiveSha256": "235ec05c801496af401e382803b8f437cc2140413a47bf7c78a9caa4af72ad47",
+    "license": "MIT"
+  },
+  "files": {
+    "vendor/fonts/Inter-4.1/InterVariable.ttf": "4989b125924991b90d05b2d16e0e388c48f7d5bb8b30539bbf9c755278d0ccaf",
+    "vendor/fonts/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf": "04b2ac921347b12c63bc35adda5722dd2b1860d900f668dc5050a44202464fa5",
+    "vendor/fonts/Inter-4.1/LICENSE.txt": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+    "vendor/fonts/Noto_Sans_JP/OFL.txt": "92c343f7e7caebff8bace350bc091b79755f4d0c8b70bb0df21570a1828917b8",
+    "vendor/nam-files/slices/japanese_default.txt": "3032f27de94485ab2885c14b927b35d12e31a281ad4eb287b9ec28fe45b8509d"
+  }
+}

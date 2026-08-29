@@ -1,0 +1,8 @@
+.cache/
+.venv/
+.fontbakery-venv/
+dist/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.DS_Store

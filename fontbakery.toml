@@ -1,0 +1,8 @@
+# The full desktop TTF deliberately contains the adopted Inter and Noto Sans JP
+# ranges. Universal-profile size limits target web delivery; web builds use the
+# Unicode-range WOFF2 package instead.
+exclude_checks = [
+  "base_has_width", # U+0488/U+0489 are inherited zero-width enclosing marks.
+  "case_mapping",   # Inherited extended Latin/Greek/Cyrillic coverage is partial.
+  "file_size",      # Full CJK desktop font; browsers receive split WOFF2 files.
+]
